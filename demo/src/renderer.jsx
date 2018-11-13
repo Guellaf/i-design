@@ -5,6 +5,8 @@ import Immutable, {Map} from 'immutable';
 import immutableDevtools from 'immutable-devtools';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
+import { BrowserRouter as Router, Route, Link  } from 'react-router-dom'
+import './style.css';
 
 import MyCatalog from './catalog/mycatalog';
 
@@ -16,6 +18,10 @@ import {
   ReactPlanner,
   Plugins as PlannerPlugins,
 } from 'react-planner'; //react-planner
+
+// Custom pages
+import HomePage from './pages/home';
+import DashboardPgae from './pages/dashboard';
 
 //define state
 let AppState = Map({
@@ -75,22 +81,38 @@ let toolbarButtons = [
   ToolbarScreenshotButton,
 ];
 
-//render
-ReactDOM.render(
-  (
-    <Provider store={store}>
-      <ContainerDimensions>
+
+
+function DesignerEditor() {
+  return (
+    <ContainerDimensions>
         {({width, height}) =>
           <ReactPlanner
             catalog={MyCatalog}
             width={width}
-            height={height}
+            height={2000}
             plugins={plugins}
             toolbarButtons={toolbarButtons}
             stateExtractor={state => state.get('react-planner')}
           />
         }
       </ContainerDimensions>
+  );
+}
+
+//render
+ReactDOM.render(
+  (
+    <Provider store={store}>
+      
+      <Router>
+            <div>
+              
+              <Route exact path="/" component={DashboardPgae} />
+              <Route   path="/home" component={HomePage} />
+              <Route path="/editor" component={DesignerEditor} />
+            </div>
+          </Router>
     </Provider>
   ),
   document.getElementById('app')

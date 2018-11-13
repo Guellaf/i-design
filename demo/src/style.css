@@ -1,0 +1,18 @@
+.layout {
+    width: 100%;
+    height: 1000px;
+   
+}
+.box-view {
+    display: inline-flex
+}
+.box-view div {
+    width: 200px;
+    height: 220px;
+    background: #dc4a12c4;
+    color: black;
+    margin: 2px;
+}
+.box-view div img {
+    width: 200px
+}
