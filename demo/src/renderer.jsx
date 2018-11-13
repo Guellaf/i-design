@@ -20,7 +20,7 @@ import {
 } from 'react-planner'; //react-planner
 
 // Custom pages
-import HomePage from './pages/home';
+import SamplesPage from './pages/sample';
 import DashboardPgae from './pages/dashboard';
 
 //define state
@@ -106,10 +106,9 @@ ReactDOM.render(
     <Provider store={store}>
       
       <Router>
-            <div>
-              
+            <div> 
               <Route exact path="/" component={DashboardPgae} />
-              <Route   path="/home" component={HomePage} />
+              <Route   path="/samples" component={SamplesPage} />
               <Route path="/editor" component={DesignerEditor} />
             </div>
           </Router>
