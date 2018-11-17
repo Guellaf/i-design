@@ -1,3 +1,16 @@
+#Planner Application
+We are building an building floor planner application based on the `react-planner`
+
+#project strcuture
+As we are developing the application on top of `react-planner` our primary goal is to use this packgae as conveient and flexible source of interation and extention so that when any new update comes to this package from core developers we can easily upgrade to latest version. Based on our project requirements, we have some enhancement feature into this package that We have to customize and improve some functionalities of the package. So, we have planned to move with some structured plan and instruction for the project.
+The tasks are categoried into two section. 
+
+1\. Application features - containing our business logic, user management and other staffs. `demo` directory is the main application where we will develop this features. Any enhancement will be done in editor package, it will be integrated here too as well. 
+
+2\. Editor features - Any enhancement functionality related to react-planner editor. This type of task will be developed into the core react-planner package and merged to our forked repository. Curently the all other folders except `demo` are for editor package.
+
+#How to contribute in the project
+
 # react-planner
 
 *react-planner* is a [React][react] component which can be used to draw model buildings. Drag & drop from a catalog of customizable and ready-to-use objects, you can start from 2D wireframes and land on 3D models. As a developer you can provide your users with new objects by adding them to the catalog.
