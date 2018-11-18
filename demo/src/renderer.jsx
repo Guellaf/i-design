@@ -5,7 +5,7 @@ import Immutable, {Map} from 'immutable';
 import immutableDevtools from 'immutable-devtools';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import { BrowserRouter as Router, Route, Link  } from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import './style.css';
 
 import MyCatalog from './catalog/mycatalog';
@@ -41,10 +41,10 @@ let blackList = isProduction === true ? [] : [
   'UPDATE_2D_CAMERA'
 ];
 
-if( !isProduction ) {
+if (!isProduction) {
   console.info('Environment is in development and these actions will be blacklisted', blackList);
   console.info('Enable Chrome custom formatter for Immutable pretty print');
-  immutableDevtools( Immutable );
+  immutableDevtools(Immutable);
 }
 
 //init store
@@ -54,16 +54,16 @@ let store = createStore(
   !isProduction && window.devToolsExtension ?
     window.devToolsExtension({
       features: {
-        pause   : true,     // start/pause recording of dispatched actions
-        lock    : true,     // lock/unlock dispatching actions and side effects
-        persist : true,     // persist states on page reloading
-        export  : true,     // export history of actions in a file
-        import  : 'custom', // import history of actions from a file
-        jump    : true,     // jump back and forth (time travelling)
-        skip    : true,     // skip (cancel) actions
-        reorder : true,     // drag and drop actions in the history list
+        pause: true,     // start/pause recording of dispatched actions
+        lock: true,     // lock/unlock dispatching actions and side effects
+        persist: true,     // persist states on page reloading
+        export: true,     // export history of actions in a file
+        import: 'custom', // import history of actions from a file
+        jump: true,     // jump back and forth (time travelling)
+        skip: true,     // skip (cancel) actions
+        reorder: true,     // drag and drop actions in the history list
         dispatch: true,     // dispatch custom actions or action creators
-        test    : true      // generate tests for the selected actions
+        test: true      // generate tests for the selected actions
       },
       actionsBlacklist: blackList,
       maxAge: 999999
@@ -82,21 +82,20 @@ let toolbarButtons = [
 ];
 
 
-
 function DesignerEditor() {
   return (
     <ContainerDimensions>
-        {({width, height}) =>
-          <ReactPlanner
-            catalog={MyCatalog}
-            width={width}
-            height={2000}
-            plugins={plugins}
-            toolbarButtons={toolbarButtons}
-            stateExtractor={state => state.get('react-planner')}
-          />
-        }
-      </ContainerDimensions>
+      {({width, height}) =>
+        <ReactPlanner
+          catalog={MyCatalog}
+          width={width}
+          height={window.innerHeight}
+          plugins={plugins}
+          toolbarButtons={toolbarButtons}
+          stateExtractor={state => state.get('react-planner')}
+        />
+      }
+    </ContainerDimensions>
   );
 }
 
@@ -104,14 +103,13 @@ function DesignerEditor() {
 ReactDOM.render(
   (
     <Provider store={store}>
-      
       <Router>
-            <div> 
-              <Route exact path="/" component={DashboardPgae} />
-              <Route   path="/samples" component={SamplesPage} />
-              <Route path="/editor" component={DesignerEditor} />
-            </div>
-          </Router>
+        <div>
+          <Route exact path="/" component={DashboardPgae}/>
+          <Route path="/samples" component={SamplesPage}/>
+          <Route path="/editor" component={DesignerEditor}/>
+        </div>
+      </Router>
     </Provider>
   ),
   document.getElementById('app')

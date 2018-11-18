@@ -21,6 +21,7 @@ module.exports = (env, self) => {
     output: {
       path: path.join(__dirname, 'dist'),
       filename: '[chunkhash].[name].js',
+      publicPath: '/'
     },
     performance: {
       hints: isProduction ? 'warning' : false
@@ -29,6 +30,7 @@ module.exports = (env, self) => {
     devServer: {
       port: port,
       contentBase: path.join(__dirname, './dist'),
+      historyApiFallback: true
     },
     resolve: {
       extensions: ['.js', '.jsx'],
