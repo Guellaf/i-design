@@ -1,29 +1,54 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../style.css';
+import Header from './layouts/header';
+import {
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button, Container, Row, Col
+} from 'reactstrap';
 
 export default class DashboardPage extends React.Component {
 
   render() {
     return (
       <div className="layout">
-        <h2>Dasboard page</h2>
+        <Header />
+        <Container>
+          <Row>
+            <Col>
+              <Card>
+                <CardImg top width="100%" src="https://static.turbosquid.com/Preview/2014/05/24__20_18_23/Back-1.jpg10e99a01-69cf-42bc-9f8e-287ba6ba1896Larger.jpg" alt="Card image cap" />
+                <CardBody>
+                  <CardTitle>My saved Home</CardTitle>
+                  <Button>Button</Button>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col>
+              <Card>
+                <CardImg top width="100%" src="https://static.turbosquid.com/Preview/2014/05/24__20_18_23/Back-1.jpg10e99a01-69cf-42bc-9f8e-287ba6ba1896Larger.jpg" alt="Card image cap" />
+                <CardBody>
+                  <Link to="/samples">
+                    <CardTitle>Sample designs</CardTitle>
+                    <Button>Button</Button>
+                  </Link>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col>
+              <Card>
+                <CardImg top width="100%" src="https://static.turbosquid.com/Preview/2014/05/24__20_18_23/Back-1.jpg10e99a01-69cf-42bc-9f8e-287ba6ba1896Larger.jpg" alt="Card image cap" />
+                <CardBody>
+                  <Link to="/editor">
+                    <CardTitle>Create New</CardTitle>
+                    <Button>Button</Button>
+                  </Link>
+                </CardBody>
+              </Card>
+            </Col>
 
-        <div className="box-view">
-          <div>
-            <Link to="/samples">
-              <h3>Sample designs </h3>
-              <img
-                src="https://static.turbosquid.com/Preview/2014/05/24__20_18_23/Back-1.jpg10e99a01-69cf-42bc-9f8e-287ba6ba1896Larger.jpg"/>
-            </Link>
-
-          </div>
-          <div>
-            <Link to="/editor">
-              <h3>Create new plan</h3>
-            </Link>
-          </div>
-        </div>
+          </Row>
+        </Container>
       </div>
     )
   }

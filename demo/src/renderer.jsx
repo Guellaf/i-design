@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ContainerDimensions from 'react-container-dimensions';
-import Immutable, {Map} from 'immutable';
+import Immutable, { Map } from 'immutable';
 import immutableDevtools from 'immutable-devtools';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import MyCatalog from './catalog/mycatalog';
 
@@ -20,6 +21,7 @@ import {
 } from 'react-planner'; //react-planner
 
 // Custom pages
+import Header from './pages/layouts/header';
 import SamplesPage from './pages/sample';
 import DashboardPgae from './pages/dashboard';
 
@@ -84,18 +86,21 @@ let toolbarButtons = [
 
 function DesignerEditor() {
   return (
-    <ContainerDimensions>
-      {({width, height}) =>
-        <ReactPlanner
-          catalog={MyCatalog}
-          width={width}
-          height={window.innerHeight}
-          plugins={plugins}
-          toolbarButtons={toolbarButtons}
-          stateExtractor={state => state.get('react-planner')}
-        />
-      }
-    </ContainerDimensions>
+    <div>
+      <Header />
+      <ContainerDimensions>
+        {({ width, height }) =>
+          <ReactPlanner
+            catalog={MyCatalog}
+            width={width}
+            height={window.innerHeight}
+            plugins={plugins}
+            toolbarButtons={toolbarButtons}
+            stateExtractor={state => state.get('react-planner')}
+          />
+        }
+      </ContainerDimensions>
+    </div>
   );
 }
 
@@ -105,9 +110,9 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <div>
-          <Route exact path="/" component={DashboardPgae}/>
-          <Route path="/samples" component={SamplesPage}/>
-          <Route path="/editor" component={DesignerEditor}/>
+          <Route exact path="/" component={DashboardPgae} />
+          <Route path="/samples" component={SamplesPage} />
+          <Route path="/editor" component={DesignerEditor} />
         </div>
       </Router>
     </Provider>
