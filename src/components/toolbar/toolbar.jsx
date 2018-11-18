@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { MdSettings, MdUndo, MdDirectionsRun } from 'react-icons/lib/md';
-import { FaFileO, FaMousePointer, FaPlus } from 'react-icons/lib/fa';
+import { FaFileO, FaMousePointer, FaPlus, FaBuilding } from 'react-icons/lib/fa';
 import ToolbarButton from './toolbar-button';
 import ToolbarSaveButton from './toolbar-save-button';
 import ToolbarLoadButton from './toolbar-load-button';
@@ -103,7 +103,7 @@ export default class Toolbar extends Component {
           active={[MODE_VIEWING_CATALOG].includes(mode)}
           tooltip={translator.t('Open catalog')}
           onClick={event => projectActions.openCatalog()}>
-          <FaPlus />
+          <FaBuilding />
         </ToolbarButton>
       },
       {

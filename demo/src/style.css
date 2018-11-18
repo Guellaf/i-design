@@ -16,3 +16,10 @@
 .box-view div img {
     width: 200px
 }
+
+.top-nav {
+    display: flex;
+}
+.top-nav div {
+    margin: 5px;
+}
