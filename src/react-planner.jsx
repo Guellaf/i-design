@@ -11,7 +11,8 @@ import {
   ToolbarComponents,
   Content,
   SidebarComponents,
-  FooterBarComponents
+  FooterBarComponents,
+  NavbarComponents
 } from './components/export';
 import {VERSION} from './version';
 import './styles/export';
@@ -19,6 +20,7 @@ import './styles/export';
 const {Toolbar} = ToolbarComponents;
 const {Sidebar} = SidebarComponents;
 const {FooterBar} = FooterBarComponents;
+const {CustomNavbar} = NavbarComponents;
 
 const toolbarW = 50;
 const sidebarW = 300;
@@ -66,12 +68,15 @@ class ReactPlanner extends Component {
     let extractedState = stateExtractor(state);
 
     return (
+      <div>
+      <CustomNavbar style={{...wrapperStyle, height}} state={extractedState} {...props}/>
       <div style={{...wrapperStyle, height}}>
         <Toolbar width={toolbarW} height={toolbarH} state={extractedState} {...props} />
         <Content width={contentW} height={contentH} state={extractedState} {...props} onWheel={event => event.preventDefault()} />
         <Sidebar width={sidebarW} height={sidebarH} state={extractedState} {...props} />
         <FooterBar width={width} height={footerBarH} state={extractedState} {...props} />
       </div>
+    </div>
     );
   }
 }
