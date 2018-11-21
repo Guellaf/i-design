@@ -32,6 +32,7 @@ let AppState = Map({
 
 //define reducer
 let reducer = (state, action) => {
+  console.log('demo reducer',action)
   state = state || AppState;
   state = state.update('react-planner', plannerState => PlannerReducer(plannerState, action));
   return state;
