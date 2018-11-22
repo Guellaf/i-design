@@ -69,7 +69,6 @@ class ReactPlanner extends Component {
 
     return (
       <div>
-      <CustomNavbar style={{...wrapperStyle, height}} state={extractedState} {...props}/>
       <div style={{...wrapperStyle, height}}>
         <Toolbar width={toolbarW} height={toolbarH} state={extractedState} {...props} />
         <Content width={contentW} height={contentH} state={extractedState} {...props} onWheel={event => event.preventDefault()} />

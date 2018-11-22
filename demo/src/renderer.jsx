@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import ContainerDimensions from 'react-container-dimensions';
 import Immutable, { Map } from 'immutable';
 import immutableDevtools from 'immutable-devtools';
+import CustomNavbar from '../../src/components/navbar/customNavbar'
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import MyCatalog from './catalog/mycatalog';
 
 import ToolbarScreenshotButton from './ui/toolbar-screenshot-button';
@@ -21,7 +21,6 @@ import {
 } from 'react-planner'; //react-planner
 
 // Custom pages
-import Header from './pages/layouts/header';
 import SamplesPage from './pages/sample';
 import DashboardPgae from './pages/dashboard';
 
@@ -29,6 +28,7 @@ import DashboardPgae from './pages/dashboard';
 let AppState = Map({
   'react-planner': new PlannerModels.State()
 });
+
 
 //define reducer
 let reducer = (state, action) => {
@@ -83,11 +83,9 @@ let toolbarButtons = [
   ToolbarScreenshotButton,
 ];
 
-
 function DesignerEditor() {
   return (
     <div>
-      <Header />
       <ContainerDimensions>
         {({ width, height }) =>
           <ReactPlanner
@@ -110,9 +108,10 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <div>
-          <Route exact path="/" component={DashboardPgae} />
-          <Route path="/samples" component={SamplesPage} />
-          <Route path="/editor" component={DesignerEditor} />
+          <CustomNavbar store={store}/>
+            <Route exact path="/" component={DashboardPgae} />
+            <Route path="/samples" component={SamplesPage} />
+            <Route path="/editor" component={DesignerEditor} />
         </div>
       </Router>
     </Provider>

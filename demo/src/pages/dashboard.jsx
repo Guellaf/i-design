@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import '../style.css';
-import Header from './layouts/header';
 import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button, Container, Row, Col
+  Card, CardImg, CardBody,
+  CardTitle, Button, Container, Row, Col
 } from 'reactstrap';
 
 export default class DashboardPage extends React.Component {
@@ -12,7 +11,6 @@ export default class DashboardPage extends React.Component {
   render() {
     return (
       <div className="layout">
-        <Header />
         <Container>
           <Row>
             <Col>

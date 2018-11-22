@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import fire from '../../../config/fire';
 import { MdSettings, MdUndo, MdDirectionsRun } from 'react-icons/lib/md';
 import { FaFileO, FaMousePointer, FaPlus, FaBuilding } from 'react-icons/lib/fa';
 import ToolbarButton from './toolbar-button';
 import ToolbarSaveButton from './toolbar-save-button';
 import ToolbarLoadButton from './toolbar-load-button';
+import ModalDontLogged from '../navbar/modalDontLogged';
 import If from '../../utils/react-if';
 import {
   MODE_IDLE,
@@ -59,18 +61,63 @@ export default class Toolbar extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.state = {};
+    this.state = { modal: false, modalLogin: false, modalSignup: false,}
+
+    this.save = this.save.bind(this)
+    // this.writeUserData = this.writeUserData.bind(this)
+    this.toggleModal = this.toggleModal.bind(this)
+    this.toggleModalLogin = this.toggleModalLogin.bind(this)
+    this.toggleModalSignup = this.toggleModalSignup.bind(this)
   }
+
+  save (a) {
+    if(fire.auth().currentUser) {
+      let uid = fire.auth().currentUser.uid;
+      this.writeUserData(uid, "project13456", a)
+    }else {
+      this.toggleModal()
+    }
+    console.log('will be save')
+    // fire.database().ref("project").once("value", function(snap) {
+    //   console.log("snap",snap.val())
+    // }, function(err) {
+    //   // error callback triggered with PERMISSION_DENIED
+    // });
+  }
+
+  toggleModal () {
+    this.setState({modal: !this.state.modal, modalLogin: false, modalSignup: false})
+  }
+
+  toggleModalLogin () {
+    this.setState({modalLogin: !this.state.modalLogin})
+  }
+
+  toggleModalSignup () {
+    this.setState({modalSignup: !this.state.modalSignup})
+  }
+
+
+
+  // writeUserData (uid, name, file) {
+  //   console.log('user save');
+  //   name = {name: name, file: file};
+  //   fire.database().ref('/project/'+uid).set({
+  //     name
+  //   });
+  // }
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.props.state.mode !== nextProps.state.mode ||
       this.props.height !== nextProps.height ||
       this.props.width !== nextProps.width ||
+      this.props.state.modalDontLogged === nextProps.state.modalDontLogged ||
       this.props.state.alterate !== nextProps.state.alterate;
   }
 
-  render() {
 
+
+  render() {
     let {
       props: { state, width, height, toolbarButtons, allowProjectFileSupport },
       context: { projectActions, viewer3DActions, translator }
@@ -91,7 +138,7 @@ export default class Toolbar extends Component {
       },
       {
         index: 1, condition: allowProjectFileSupport,
-        dom: <ToolbarSaveButton state={state} />
+        dom: <ToolbarSaveButton state={state} props={this.props.state} save={this.save}/>
       },
       {
         index: 2, condition: allowProjectFileSupport,
@@ -161,8 +208,17 @@ export default class Toolbar extends Component {
         };
     }));
 
+
     return (
       <aside style={{ ...ASIDE_STYLE, maxWidth: width, maxHeight: height }} className='toolbar'>
+        {this.state.modal && <ModalDontLogged
+        toggleModal={this.toggleModal}
+        modalLogin={this.state.modalLogin}
+        modalSignup={this.state.modalSignup}
+        modal={this.state.modal}
+        toggleModalLogin={this.toggleModalLogin}
+        toggleModalSignup={this.toggleModalSignup}/>}
+
         {sorter.sort(sortButtonsCb).map(mapButtonsCb)}
       </aside>
     )

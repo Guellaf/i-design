@@ -1,4 +1,4 @@
-import CustomNavbar from './navbar';
+import CustomNavbar from './customNavbar';
 
 export {
   CustomNavbar
