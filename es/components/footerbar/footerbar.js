@@ -222,7 +222,7 @@ var FooterBar = function (_Component) {
           'div',
           {
             style: rightTextStyle,
-            title: this.props.softwareSignature + (this.props.softwareSignature.includes('React-Planner') ? '' : ' using React-Planner ' + VERSION)
+            title: this.props.softwareSignature + (this.props.softwareSignature.includes('Exkuisite') ? '' : ' using Exkuisite ' + VERSION)
           },
           this.props.softwareSignature
         ) : null,

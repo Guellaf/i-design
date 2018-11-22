@@ -139,7 +139,7 @@ export default class FooterBar extends Component {
           this.props.softwareSignature ?
             <div
               style={rightTextStyle}
-              title={this.props.softwareSignature + (this.props.softwareSignature.includes('React-Planner') ? '' : ` using React-Planner ${VERSION}`)}
+              title={this.props.softwareSignature + (this.props.softwareSignature.includes('Exkuisite') ? '' : ` using Exkuisite ${VERSION}`)}
             >
               {this.props.softwareSignature}
             </div>
