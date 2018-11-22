@@ -1,6 +1,7 @@
 import {Record, List, Map, fromJS} from 'immutable';
 import {MODE_IDLE} from './constants';
 import {SNAP_MASK} from './utils/snap';
+// import User from './class/user';
 
 let safeLoadMapList = (mapList, Model, defaultMap) => {
   return mapList
@@ -18,7 +19,7 @@ export class Grid extends Record({
     super({
       ...json,
       properties: fromJS(json.properties || {})
-    });
+    }); 
   }
 }
 
@@ -56,7 +57,7 @@ export class ElementsSet extends Record({
       holes: new List(json.holes || []),
       areas: new List(json.areas || []),
       items: new List(json.items || [])
-    });
+    }); 
   }
 }
 
@@ -85,7 +86,7 @@ export class Vertex extends Record({
       ...json,
       lines: new List(json.lines || []),
       areas: new List(json.areas || [])
-    });
+    }); 
   }
 }
 
@@ -250,7 +251,7 @@ export class Catalog extends Record({
     super({
       elements,
       ready: !elements.isEmpty()
-    });
+    }); 
   }
 
   factoryElement(type, options, initialProperties) {
@@ -295,6 +296,18 @@ export class HistoryStructure extends Record({
   }
 }
 
+
+export class User extends Record({
+  user: new Map()
+}, 'User' ){
+  constructor( json = {} ){
+    super({
+      user: json || {},
+      elements: json || {}
+    }); 
+  }
+}
+
 export class State extends Record({
   mode: MODE_IDLE,
   scene: new Scene(),
@@ -314,7 +327,8 @@ export class State extends Record({
   clipboardProperties: new Map(),
   selectedElementsHistory: new List(),
   misc: new Map(),   //additional info
-  alterate: false
+  alterate: false,
+  user: new User()
 }, 'State') {
   constructor(json = {}) {
     super({
@@ -326,7 +340,8 @@ export class State extends Record({
       drawingSupport: new Map(json.drawingSupport || {}),
       draggingSupport: new Map(json.draggingSupport || {}),
       rotatingSupport: new Map(json.rotatingSupport || {}),
-      misc: json.misc ? fromJS(json.misc) : new Map()
+      misc: json.misc ? fromJS(json.misc) : new Map(),
+      user: new User(json.payload || {})
     });
   }
 }

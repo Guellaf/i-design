@@ -1,3 +1,6 @@
+//USERS
+export const ADD_USER = 'ADD_USER';
+export const DELETE_USER = "DELETE_USER";
 // ACTIONS project
 export const NEW_PROJECT = 'NEW_PROJECT';
 export const LOAD_PROJECT = 'LOAD_PROJECT';
@@ -220,6 +223,11 @@ export const VERTEX_ACTIONS = {
   BEGIN_DRAGGING_VERTEX,
   UPDATE_DRAGGING_VERTEX,
   END_DRAGGING_VERTEX
+};
+
+export const USER_ACTIONS = {
+ ADD_USER,
+ DELETE_USER
 };
 
 //MODES
