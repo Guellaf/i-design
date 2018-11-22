@@ -91,7 +91,7 @@ function DesignerEditor() {
           <ReactPlanner
             catalog={MyCatalog}
             width={width}
-            height={window.innerHeight}
+            height={window.innerHeight - 70}
             plugins={plugins}
             toolbarButtons={toolbarButtons}
             stateExtractor={state => state.get('react-planner')}
