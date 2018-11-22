@@ -6,9 +6,13 @@ The running version of the app is [here](https://suite.netlify.com)
 As we are developing the application on top of `react-planner` our primary goal is to use this packgae as conveient and flexible source of interation and extention so that when any new update comes to this package from core developers we can easily upgrade to latest version. Based on our project requirements, we have some enhancement feature into this package that We have to customize and improve some functionalities of the package. So, we have planned to move with some structured plan and instruction for the project.
 The tasks are categoried into two section.
 
-1\. Application features - containing our business logic, user management and other staffs. `demo` directory is the main application where we will develop this features. Any enhancement will be done in editor package, it will be integrated here too as well.
+The codebase has two primary root folders where we will be adding code 1. demo and 2. src 
 
-2\. Editor features - Any enhancement functionality related to react-planner editor. This type of task will be developed into the core react-planner package and merged to our forked repository. Curently the all other folders except `demo` are for editor package.
+1. demo - this has all the 3D model catalog (.obj files and 3D catalog information). This file also has main file `renderer.jsx`
+which bootstraps the application. It also has the React-Router root configuration. We will not add any react components 
+in this folder. Ideally this folder should not exist and be merged into the src folder. It exists for legacy reasons.
+
+2. src - this has all the react components, styles, actions, reducers, utils, config. Any new components introduced will sit here. 
   
 # Application Conventions
 * We use double spaces as the default indentation.
