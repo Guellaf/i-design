@@ -1,31 +1,37 @@
-#Planner Application
-We are building the future of interior design and e-commerce. This application is based on the `react-planner` codebae.
+# Planner Application
+We are building the future of interior design and e-commerce. This application is based on the [react-planner](https://github.com/cvdlab/react-planner-mobile) codebase.
 The running version of the app is [here](https://suite.netlify.com)
-#Project strcuture
+# Project strcuture
 
-As we are developing the application on top of `react-planner` our primary goal is to use this packgae as conveient and flexible source of interation and extention so that when any new update comes to this package from core developers we can easily upgrade to latest version. Based on our project requirements, we have some enhancement feature into this package that We have to customize and improve some functionalities of the package. So, we have planned to move with some structured plan and instruction for the project.
-The tasks are categoried into two section.
+The codebase has two primary root folders where we will be adding code 1. demo and 2. src 
 
-1\. Application features - containing our business logic, user management and other staffs. `demo` directory is the main application where we will develop this features. Any enhancement will be done in editor package, it will be integrated here too as well.
+1. demo - this has all the 3D model catalog (.obj files and 3D catalog information). This file also has main file `renderer.jsx`
+which bootstraps the application. It also has the React-Router root configuration. We will not add any react components 
+in this folder. Ideally this folder should not exist and be merged into the src folder. It exists for legacy reasons.
 
-2\. Editor features - Any enhancement functionality related to react-planner editor. This type of task will be developed into the core react-planner package and merged to our forked repository. Curently the all other folders except `demo` are for editor package.
+2. src - this has all the react components, styles, actions, reducers, utils, config. Any new components introduced will sit here. 
   
 # Application Conventions
 * We use double spaces as the default indentation.
 
 # Deployment
+* To deploy your changes open a Pull Request to `master` branch from your `feature-branch`.
+* Once you receive at-least one Approval merge you may merge your branch to `master`.
 * The application is automatically deployed when there is a push to the `master` branch.
+* When you open a Pull Request the version of the code in PR is deployed by netlify to preview the changes. This 
+can be accessed by clicking on the details link in PR check (see image below for reference).
 * This deployment is kick-started by a service called Netlify. It is similar to Heroku but much better.
 * The latest version in master is always running [here](https://suite.netlify.com).
+* Once the Pull Request is merged please delete the `feature-branch` by clicking `Delete Branch` button in the PR page.
+
+
+![Deploy Preview](./img/deploy-preview.png)
+![Delete Branch](./img/delete-pr.png)
+
 
 # react-planner
 
-*react-planner* is a [React][react] component which can be used to draw model buildings. Drag & drop from a catalog of customizable and ready-to-use objects, you can start from 2D wireframes and land on 3D models. As a developer you can provide your users with new objects by adding them to the catalog.
-
-[![npm][npm_label]][npm_link]
-![javascript][js]
-![react-version][react_version]
-
+*react-planner* which this repo is based from is a [React][react] component which can be used to draw model buildings. Drag & drop from a catalog of customizable and ready-to-use objects, you can start from 2D wireframes and land on 3D models. As a developer you can provide your users with new objects by adding them to the catalog.
 
 ## Usage
 

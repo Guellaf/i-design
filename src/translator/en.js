@@ -20,6 +20,7 @@ export default {
   "Delete layer": "Delete layer",
   "Delete": "Delete",
   "Elements on layer {0}": "Elements on layer {0}",
+  "Elements in the design": "Elements in the design",
   "Elements":"Elements",
   "Get Screenshot" : "Get Screenshot",
   "Group [{0}]":"Group [{0}]",
