@@ -143,7 +143,7 @@ export default class PanelLayerElement extends Component {
     let layer = this.props.layers.get(this.props.selectedLayer);
 
     return (
-      <Panel name={this.context.translator.t('Elements on layer {0}', layer.name)}>
+      <Panel name={this.context.translator.t('Elements in the design')}>
         <div style={contentArea} onWheel={e => e.stopPropagation()}>
 
           <table style={tableSearchStyle}>

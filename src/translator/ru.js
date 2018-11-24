@@ -20,6 +20,7 @@ export default {
   "Delete layer": "Удалить слой",
   "Delete": "Удалить",
   "Elements on layer {0}": "Элементов на слое {0}",
+  "Elements in the design": "Элементы в дизайне",
   "Elements":"элементы",
   "Get Screenshot": "Сделать снимок экрана",
   "Group [{0}]":"группа [{0}]",

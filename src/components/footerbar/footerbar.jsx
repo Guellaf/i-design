@@ -92,83 +92,16 @@ export default class FooterBar extends Component {
           <div style={leftTextStyle}>
             <FooterToggleButton
               state={this.state}
-              toggleOn={() => { updateSnapMask({ SNAP_POINT: true }); }}
-              toggleOff={() => { updateSnapMask({ SNAP_POINT: false }); }}
-              text="Snap PT"
-              toggleState={globalState.snapMask.get(SNAP_POINT)}
-              title={translator.t('Snap to Point')}
-            />
-            <FooterToggleButton
-              state={this.state}
-              toggleOn={() => { updateSnapMask({ SNAP_LINE: true }); }}
-              toggleOff={() => { updateSnapMask({ SNAP_LINE: false }); }}
-              text="Snap LN"
-              toggleState={globalState.snapMask.get(SNAP_LINE)}
-              title={translator.t('Snap to Line')}
-            />
-            <FooterToggleButton
-              state={this.state}
-              toggleOn={() => { updateSnapMask({ SNAP_SEGMENT: true }); }}
-              toggleOff={() => { updateSnapMask({ SNAP_SEGMENT: false }); }}
-              text="Snap SEG"
-              toggleState={globalState.snapMask.get(SNAP_SEGMENT)}
-              title={translator.t('Snap to Segment')}
-            />
-            <FooterToggleButton
-              state={this.state}
               toggleOn={() => { updateSnapMask({ SNAP_GRID: true }); }}
               toggleOff={() => { updateSnapMask({ SNAP_GRID: false }); }}
-              text="Snap GRD"
+              text="Snap GRID"
               toggleState={globalState.snapMask.get(SNAP_GRID)}
               title={translator.t('Snap to Grid')}
-            />
-            <FooterToggleButton
-              state={this.state}
-              toggleOn={() => { updateSnapMask({ SNAP_GUIDE: true }); }}
-              toggleOff={() => { updateSnapMask({ SNAP_GUIDE: false }); }}
-              text="Snap GDE"
-              toggleState={globalState.snapMask.get(SNAP_GUIDE)}
-              title={translator.t('Snap to Guide')}
             />
           </div>
         </If>
 
         {this.props.footerbarComponents.map((Component, index) => <Component state={state} key={index} />)}
-
-        {
-          this.props.softwareSignature ?
-            <div
-              style={rightTextStyle}
-              title={this.props.softwareSignature + (this.props.softwareSignature.includes('Exkuisite') ? '' : ` using Exkuisite ${VERSION}`)}
-            >
-              {this.props.softwareSignature}
-            </div>
-            : null
-        }
-
-        <div style={rightTextStyle}>
-          <FooterContentButton
-            state={this.state}
-            icon={MdAddCircle}
-            iconStyle={errorIconStyle}
-            text={errors.length.toString()}
-            textStyle={errorLableStyle}
-            title={`Errors [ ${errors.length} ]`}
-            titleStyle={errorLableStyle}
-            content={[errorsJsx]}
-          />
-          <FooterContentButton
-            state={this.state}
-            icon={MdWarning}
-            iconStyle={warningIconStyle}
-            text={warnings.length.toString()}
-            textStyle={warningLableStyle}
-            title={`Warnings [ ${warnings.length} ]`}
-            titleStyle={warningLableStyle}
-            content={[warningsJsx]}
-          />
-        </div>
-
       </div>
     );
   }
