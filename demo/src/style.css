@@ -23,3 +23,33 @@
 .top-nav div {
     margin: 5px;
 }
+.category-view {
+    display: block;
+    column-count: 2;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+}
+.cat-title {
+    margin-bottom: -20px !important;
+    z-index: 999;
+    background: #212529a6;
+    text-align: center;
+    padding: 5px;
+    color: white;
+}
+.category-view .card .card-img-top {
+    max-width: 300px;
+}
+
+.showcatButton {
+    width: 100%;
+}
+.pop-layout {
+    width: 100%;
+}
+.suite-button {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background: grey;
+}
