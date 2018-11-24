@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import fire from '../../../config/fire';
+import fire from '../../config/fire';
 import {Navbar, NavItem, NavbarBrand, NavbarToggler, Collapse, Nav, NavLink} from 'reactstrap';
 import {Link} from 'react-router-dom'
 

@@ -22,9 +22,11 @@ in this folder. Ideally this folder should not exist and be merged into the src 
 can be accessed by clicking on the details link in PR check (see image below for reference).
 * This deployment is kick-started by a service called Netlify. It is similar to Heroku but much better.
 * The latest version in master is always running [here](https://suite.netlify.com).
+* Once the Pull Request is merged please delete the `feature-branch` by clicking `Delete Branch` button in the PR page.
 
 
-![Deploy Preview](./deploy-preview.png)
+![Deploy Preview](./img/deploy-preview.png)
+![Delete Branch](./img/delete-pr.png)
 
 
 # react-planner

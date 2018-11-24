@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import fire from '../../../config/fire';
+import fire from '../../config/fire';
 import { MdSettings, MdUndo, MdDirectionsRun } from 'react-icons/lib/md';
 import { FaFileO, FaMousePointer, FaPlus, FaBuilding } from 'react-icons/lib/fa';
 import ToolbarButton from './toolbar-button';
@@ -166,7 +166,7 @@ export default class Toolbar extends Component {
           active={[MODE_IDLE].includes(mode)}
           tooltip={translator.t('2D View')}
           onClick={event => projectActions.setMode( MODE_IDLE )}>
-          <Icon2D /> 
+          <Icon2D />
         </ToolbarButton>
       },
       {
