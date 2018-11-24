@@ -53,3 +53,10 @@
     width: 50px;
     background: grey;
 }
+.suite-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    text-align: center;
+    border-radius: 50%;
+}

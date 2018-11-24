@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { MdSettings, MdUndo, MdDirectionsRun } from 'react-icons/lib/md';
-import { FaFileO, FaMousePointer, FaPlus, FaBuilding } from 'react-icons/lib/fa';
+import { FaFileO, FaMousePointer } from 'react-icons/lib/fa';
 import ToolbarButton from './toolbar-button';
 import ToolbarSaveButton from './toolbar-save-button';
 import ToolbarLoadButton from './toolbar-load-button';
@@ -23,8 +23,8 @@ const iconTextStyle = {
   userSelect: 'none'
 };
 
-const Icon2D = ( {style} ) => <p style={{...iconTextStyle, ...style}}>2D</p>;
-const Icon3D = ( {style} ) => <p style={{...iconTextStyle, ...style}}>3D</p>;
+const Icon2D = ({ style }) => <p style={{ ...iconTextStyle, ...style }}>2D</p>;
+const Icon3D = ({ style }) => <p style={{ ...iconTextStyle, ...style }}>3D</p>;
 
 const ASIDE_STYLE = {
   backgroundColor: SharedStyle.PRIMARY_COLOR.main,
@@ -103,7 +103,7 @@ export default class Toolbar extends Component {
           active={[MODE_VIEWING_CATALOG].includes(mode)}
           tooltip={translator.t('Open catalog')}
           onClick={event => projectActions.openCatalog()}>
-          <FaBuilding />
+          <img src="https://i.imgur.com/B7WT3Dx.png" className="suite-icon" />
         </ToolbarButton>
       },
       {
@@ -118,8 +118,8 @@ export default class Toolbar extends Component {
         index: 5, condition: true, dom: <ToolbarButton
           active={[MODE_IDLE].includes(mode)}
           tooltip={translator.t('2D View')}
-          onClick={event => projectActions.setMode( MODE_IDLE )}>
-          {[MODE_3D_FIRST_PERSON, MODE_3D_VIEW].includes(mode) ? <Icon2D style={{color: alterateColor}} /> : <FaMousePointer style={{color: alterateColor}} />}
+          onClick={event => projectActions.setMode(MODE_IDLE)}>
+          {[MODE_3D_FIRST_PERSON, MODE_3D_VIEW].includes(mode) ? <Icon2D style={{ color: alterateColor }} /> : <FaMousePointer style={{ color: alterateColor }} />}
         </ToolbarButton>
       },
       {
