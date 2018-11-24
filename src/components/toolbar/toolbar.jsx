@@ -25,8 +25,8 @@ const iconTextStyle = {
   userSelect: 'none'
 };
 
-const Icon2D = ( {style} ) => <p style={{...iconTextStyle, ...style}}>2D</p>;
-const Icon3D = ( {style} ) => <p style={{...iconTextStyle, ...style}}>3D</p>;
+const Icon2D = ( {style} ) => <p style={{...iconTextStyle, ...style, paddingTop: '5px'}}>2D</p>;
+const Icon3D = ( {style} ) => <p style={{...iconTextStyle, ...style, paddingTop: '10px'}}>3D</p>;
 
 const ASIDE_STYLE = {
   backgroundColor: SharedStyle.PRIMARY_COLOR.main,
@@ -166,7 +166,7 @@ export default class Toolbar extends Component {
           active={[MODE_IDLE].includes(mode)}
           tooltip={translator.t('2D View')}
           onClick={event => projectActions.setMode( MODE_IDLE )}>
-          {[MODE_3D_FIRST_PERSON, MODE_3D_VIEW].includes(mode) ? <Icon2D style={{color: alterateColor}} /> : <FaMousePointer style={{color: alterateColor}} />}
+          <Icon2D /> 
         </ToolbarButton>
       },
       {
