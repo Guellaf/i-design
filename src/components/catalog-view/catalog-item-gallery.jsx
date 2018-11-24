@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
 import {
-  Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle,
+  Button, Card, CardImg,
+  CardTitle,
 } from 'reactstrap';
 
 import { FaArrowLeft, FaClose } from 'react-icons/lib/fa';
 
 import GalleryDetail from './catalog-item-gallery-detail';
-import Item from '../viewer2d/item';
 
 export default class Gallery extends Component {
 
@@ -17,7 +16,6 @@ export default class Gallery extends Component {
     super(props);
 
     let elements = props.catalog;
-    //let currentCategory = context.catalog.getCategory(page);
 
     this.state = {
       modal: false,
@@ -51,7 +49,7 @@ export default class Gallery extends Component {
 
     return (<div>
 
-      {this.state.isGallery == true ? <div> <GalleryDetail element={this.state.selectedItem} goBackItem={this.toggle}/></div>
+      {this.state.isGallery == true ? <div> <GalleryDetail element={this.state.selectedItem} goBackItem={this.toggle} /></div>
         :
         <div>
           <Button color="primary" className="suite-button" onClick={() => this.props.goBack('root')}><FaArrowLeft /></Button>

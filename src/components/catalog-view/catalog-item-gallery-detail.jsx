@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle,
+  Button, Card, CardImg, 
+  CardTitle,
 } from 'reactstrap';
 
 import { FaArrowLeft, FaClose } from 'react-icons/lib/fa';
@@ -53,16 +53,16 @@ export default class GalleryDetail extends Component {
   render() {
 
     let item = this.state.item;
-    console.log('found item',item)
+    console.log('found item', item)
 
-    return(<div>
+    return (<div>
       <Button color="primary" className="suite-button" onClick={() => this.props.goBackItem(this.props.element)}><FaArrowLeft /></Button>
 
-      
+      Product detail page
         <Card onClick={e => this.select()}>
-          <CardTitle className="cat-title">{this.state.item.info.title} </CardTitle>
-          <CardImg top width="50%" src={this.state.item.info.image} alt="Card image cap" />
-        </Card>
+        <CardTitle className="cat-title">{this.state.item.info.title} </CardTitle>
+        <CardImg top width="50%" src={this.state.item.info.image} alt="Card image cap" />
+      </Card>
     </div>);
   }
 }

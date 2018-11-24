@@ -1,22 +1,14 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CatalogItem from './catalog-item';
 import CatalogBreadcrumb from './catalog-breadcrumb';
-import CatalogPageItem from './catalog-page-item';
 import CatalogTurnBackPageItem from './catalog-turn-back-page-item';
-import ContentContainer from '../style/content-container';
-import ContentTitle from '../style/content-title';
-import * as SharedStyle from '../../shared-style';
 
 import {
-  Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle,
+  Button, Modal, ModalHeader, ModalBody, Card, CardImg,
+  CardTitle,
 } from 'reactstrap';
 
-import { FaArrowLeft, FaClose } from 'react-icons/lib/fa';
-
-// import catalog from '../catalog/mycatalog';
 
 import Gallery from './catalog-item-gallery';
 
@@ -56,7 +48,6 @@ export default class CategoryItemsDisplay extends Component {
 
 
   choseCategory(newPage) {
-    // this.context.projectActions.changeCatalogPage(newPage, this.props.oldPage.name)
 
     this.setState({
       categoryList: !this.state.categoryList
