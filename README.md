@@ -18,9 +18,17 @@ in this folder. Ideally this folder should not exist and be merged into the src 
 * We use double spaces as the default indentation.
 
 # Deployment
+* To deploy your changes open a Pull Request to `master` branch from your `feature-branch`.
+* Once you receive at-least one Approval merge you may merge your branch to `master`.
 * The application is automatically deployed when there is a push to the `master` branch.
+* When you open a Pull Request the version of the code in PR is deployed by netlify to preview the changes. This 
+can be accessed by clicking on the details link in PR check (see image below for reference).
 * This deployment is kick-started by a service called Netlify. It is similar to Heroku but much better.
 * The latest version in master is always running [here](https://suite.netlify.com).
+
+
+![Deploy Preview](./deploy-preview.png)
+
 
 # react-planner
 
