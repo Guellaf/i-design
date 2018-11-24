@@ -1,10 +1,7 @@
-#Planner Application
-We are building the future of interior design and e-commerce. This application is based on the `react-planner` codebae.
+# Planner Application
+We are building the future of interior design and e-commerce. This application is based on the [react-planner](https://github.com/cvdlab/react-planner-mobile) codebase.
 The running version of the app is [here](https://suite.netlify.com)
-#Project strcuture
-
-As we are developing the application on top of `react-planner` our primary goal is to use this packgae as conveient and flexible source of interation and extention so that when any new update comes to this package from core developers we can easily upgrade to latest version. Based on our project requirements, we have some enhancement feature into this package that We have to customize and improve some functionalities of the package. So, we have planned to move with some structured plan and instruction for the project.
-The tasks are categoried into two section.
+# Project strcuture
 
 The codebase has two primary root folders where we will be adding code 1. demo and 2. src 
 
@@ -32,12 +29,7 @@ can be accessed by clicking on the details link in PR check (see image below for
 
 # react-planner
 
-*react-planner* is a [React][react] component which can be used to draw model buildings. Drag & drop from a catalog of customizable and ready-to-use objects, you can start from 2D wireframes and land on 3D models. As a developer you can provide your users with new objects by adding them to the catalog.
-
-[![npm][npm_label]][npm_link]
-![javascript][js]
-![react-version][react_version]
-
+*react-planner* which this repo is based from is a [React][react] component which can be used to draw model buildings. Drag & drop from a catalog of customizable and ready-to-use objects, you can start from 2D wireframes and land on 3D models. As a developer you can provide your users with new objects by adding them to the catalog.
 
 ## Usage
 
