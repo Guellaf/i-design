@@ -78,3 +78,21 @@
     text-align: center;
     border-radius: 50%;
 }
+
+/* Carousel styling */
+.carousel-thumb {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-thumb .image-box {
+    margin: 2px;
+    border: 3px solid #ffff;
+    padding: 2px;
+}
+.carousel-thumb .image-box-active, .carousel-thumb .image-box:hover {
+    margin: 2px;
+    border: 3px solid #00e5ff;
+    padding: 2px;
+}

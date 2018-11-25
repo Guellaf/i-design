@@ -148,7 +148,10 @@ export default class Toolbar extends Component {
       {
         index: 3, condition: true,
         dom: <ToolbarButton
-          tooltip={translator.t('Open catalog')}>
+          tooltip={translator.t('Open catalog')}
+          active={true}
+          onClick={() => null}
+        >
           <CatalogList
             state={state}
             width={width}
