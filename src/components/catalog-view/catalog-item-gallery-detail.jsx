@@ -8,6 +8,13 @@ import {
 
 import { FaArrowLeft, FaClose } from 'react-icons/lib/fa';
 
+const backButtonStyle = {
+  marginTop: '-31px',
+  position: 'fixed',
+  zIndex: '999'
+}
+
+
 export default class GalleryDetail extends Component {
 
   constructor(props, context) {
@@ -56,7 +63,7 @@ export default class GalleryDetail extends Component {
     console.log('found item', item)
 
     return (<div>
-      <Button color="primary" className="suite-button" onClick={() => this.props.goBackItem(this.props.element)}><FaArrowLeft /></Button>
+      <Button color="primary" style={backButtonStyle} className="suite-button" onClick={() => this.props.goBackItem(this.props.element)}><FaArrowLeft /></Button>
 
       Product detail page
         <Card onClick={e => this.select()}>

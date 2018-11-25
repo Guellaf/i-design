@@ -9,6 +9,13 @@ import { FaArrowLeft, FaClose } from 'react-icons/lib/fa';
 
 import GalleryDetail from './catalog-item-gallery-detail';
 
+
+const backButtonStyle = {
+  marginTop: '-31px',
+  position: 'fixed',
+  zIndex: '999'
+}
+
 export default class Gallery extends Component {
 
 
@@ -18,7 +25,6 @@ export default class Gallery extends Component {
     let elements = props.catalog;
 
     this.state = {
-      modal: false,
       isGallery: false,
       items: elements,
       selectedItem: null
@@ -52,7 +58,7 @@ export default class Gallery extends Component {
       {this.state.isGallery == true ? <div> <GalleryDetail element={this.state.selectedItem} goBackItem={this.toggle} /></div>
         :
         <div>
-          <Button color="primary" className="suite-button" onClick={() => this.props.goBack('root')}><FaArrowLeft /></Button>
+          <Button color="primary" style={backButtonStyle} className="suite-button" onClick={() => this.props.goBack('root')}><FaArrowLeft /></Button>
           <div className="category-view">
             {Object.keys(items).map((key, i) => {
               return <Card onClick={() => this.toggle(items[i])} key={i}>

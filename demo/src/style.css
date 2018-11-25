@@ -28,6 +28,8 @@
     column-count: 2;
     -moz-column-count: 2;
     -webkit-column-count: 2;
+    width: 50%;
+    margin: 0 auto;
 }
 .cat-title {
     margin-bottom: -20px !important;
@@ -46,12 +48,28 @@
 }
 .pop-layout {
     width: 100%;
+    background: #525252;
+}
+.modal-header {
+    border-bottom: 0px !important;
+}
+.modal-content {
+    background: #525252 !important;
+    height: 100%;
 }
 .suite-button {
     border-radius: 50%;
     height: 50px;
     width: 50px;
-    background: grey;
+    /* position: fixed; */
+   
+    border-radius: 2.25rem !important;
+    background: #e0e0e0 !important;
+    color: black !important;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 
+                0px 6px 10px 0px rgba(0, 0, 0, 0.14), 
+                0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+    border: 0px !important;
 }
 .suite-icon {
     width: 40px;
