@@ -9,7 +9,7 @@ import {
   CardTitle, ModalFooter,
 } from 'reactstrap';
 
-import {FaClose} from 'react-icons/lib/fa';
+import { FaClose } from 'react-icons/lib/fa';
 
 
 import Gallery from './catalog-item-gallery';
@@ -30,7 +30,6 @@ const bodyStyle = {
 const closeButtonStyle = {
   float: 'right',
   right: '20px',
-  // marginTop: '20px'
   position: 'fixed',
   zIndex: '999'
 };
@@ -81,7 +80,6 @@ export default class CatalogList extends Component {
 
     let breadcrumbComponent = null;
 
-    console.log('category list', categoriesToDisplay)
 
     if (page !== 'root') {
 
@@ -120,7 +118,7 @@ export default class CatalogList extends Component {
             {/* <div onClick={this.toggle}>
               <Button color="primary" className="suite-button" style={closeButtonStyle}>X</Button>
             </div> */}
-            <Button className="suite-button" style={closeButtonStyle}  onClick={this.toggle}> <FaClose/></Button>
+            <Button className="suite-button" style={closeButtonStyle} onClick={this.toggle}> <FaClose /></Button>
           </ModalHeader>
 
           <ModalBody style={bodyStyle}>

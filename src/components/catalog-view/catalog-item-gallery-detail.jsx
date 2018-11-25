@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  Button, Card, CardImg, 
+  Button, Card, CardImg,
   CardTitle,
 } from 'reactstrap';
 
@@ -25,8 +25,6 @@ export default class GalleryDetail extends Component {
       isGalleryDetail: false,
       item: item
     };
-
-    console.log('item', context)
 
     this.toggle = this.toggle.bind(this);
   }

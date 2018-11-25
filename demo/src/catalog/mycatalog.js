@@ -21,9 +21,9 @@ catalog.registerCategory('doors_windows', 'Doors and Windows ', [Holes.window, H
 catalog.registerCategory('walls', 'Walls', [Holes.door, Holes.doorDouble, Holes.panicDoor, Holes.panicDoorDouble, Holes.slidingDoor] );
 catalog.registerCategory('livinf_room', 'Living Room', [Holes.window, Holes.sashWindow, Holes.venetianBlindWindow, Holes.windowCurtain] );
 catalog.registerCategory('office_room', 'Office Room', [Holes.door, Holes.doorDouble, Holes.panicDoor, Holes.panicDoorDouble, Holes.slidingDoor] );
-// catalog.registerCategory('bedroom', 'Bedroom', [Holes.window, Holes.sashWindow, Holes.venetianBlindWindow, Holes.windowCurtain] );
-// catalog.registerCategory('dining_room', 'Dining room', [Holes.door, Holes.doorDouble, Holes.panicDoor, Holes.panicDoorDouble, Holes.slidingDoor] );
-// catalog.registerCategory('kitchen', 'Kitchen', [Holes.window, Holes.sashWindow, Holes.venetianBlindWindow, Holes.windowCurtain] );
-// catalog.registerCategory('miscellaneous', 'Miscellaneous', [Holes.door, Holes.doorDouble, Holes.panicDoor, Holes.panicDoorDouble, Holes.slidingDoor] );
+catalog.registerCategory('bedroom', 'Bedroom', [Holes.window, Holes.sashWindow, Holes.venetianBlindWindow, Holes.windowCurtain] );
+catalog.registerCategory('dining_room', 'Dining room', [Holes.door, Holes.doorDouble, Holes.panicDoor, Holes.panicDoorDouble, Holes.slidingDoor] );
+catalog.registerCategory('kitchen', 'Kitchen', [Holes.window, Holes.sashWindow, Holes.venetianBlindWindow, Holes.windowCurtain] );
+catalog.registerCategory('miscellaneous', 'Miscellaneous', [Holes.door, Holes.doorDouble, Holes.panicDoor, Holes.panicDoorDouble, Holes.slidingDoor] );
 
 export default catalog;

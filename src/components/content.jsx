@@ -21,7 +21,6 @@ export default function Content({width, height, state, customContents}) {
 
     case constants.MODE_VIEWING_CATALOG:
       return <CatalogList state={state} width={width} height={height}/>;
-      // return <CategoryItemsDisplay state={state} width={width} height={height}/>;
 
 
     case constants.MODE_IDLE:

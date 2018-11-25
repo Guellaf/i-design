@@ -30,15 +30,12 @@ export default class Gallery extends Component {
       selectedItem: null
     };
 
-    console.log('cat', elements)
-
     this.toggle = this.toggle.bind(this);
 
 
   }
 
   toggle(item) {
-    console.log('got catalogs', item);
     this.setState({
       selectedItem: item,
       isGallery: !this.state.isGallery
