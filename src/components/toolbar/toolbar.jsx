@@ -186,7 +186,7 @@ export default class Toolbar extends Component {
         </ToolbarButton>
       },
       {
-        index: 8, condition: true, dom: <ToolbarButton
+        index: 8, condition: false, dom: <ToolbarButton
           active={[MODE_CONFIGURING_PROJECT].includes(mode)}
           tooltip={translator.t('Configure project')}
           onClick={event => projectActions.openProjectConfigurator()}>
