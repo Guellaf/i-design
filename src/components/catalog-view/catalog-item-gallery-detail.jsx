@@ -94,7 +94,6 @@ export default class GalleryDetail extends Component {
   // slider function ends
 
   toggle() {
-    console.log('got catalogs', this.state.item);
     this.setState({
       isGalleryDetail: !this.state.isGalleryDetail
     });

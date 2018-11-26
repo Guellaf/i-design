@@ -78,7 +78,7 @@ export default class Toolbar extends Component {
     } else {
       this.toggleModal()
     }
-    console.log('will be save')
+
     // fire.database().ref("project").once("value", function(snap) {
     //   console.log("snap",snap.val())
     // }, function(err) {

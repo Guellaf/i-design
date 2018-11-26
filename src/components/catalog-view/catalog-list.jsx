@@ -50,8 +50,6 @@ export default class CatalogList extends Component {
       catalog: elementsToDisplay
     };
 
-    console.log('cat check', props.state.catalog);
-
     this.toggle = this.toggle.bind(this);
     this.choseCategory = this.choseCategory.bind(this);
   }
