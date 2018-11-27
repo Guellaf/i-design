@@ -156,7 +156,7 @@ export default class Toolbar extends Component {
             state={state}
             width={width}
             height={height}
-            label={<img src="https://i.imgur.com/B7WT3Dx.png" className="suite-icon" />}
+            label={<img src="https://i.imgur.com/Zsn3uYh.png" className="suite-icon" />}
           />
         </ToolbarButton>
       },

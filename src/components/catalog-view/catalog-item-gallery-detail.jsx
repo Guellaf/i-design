@@ -163,7 +163,7 @@ export default class GalleryDetail extends Component {
             </div>
           </Col>
           <Col xs="6">
-            <h2>Title:{this.state.item.info.title}</h2>
+            <h2>{this.state.item.info.title}</h2>
             <h4>Description</h4>
             <p>
               Dimensions: Love Seat: 58 1/2”L X 33”W X 34 1/2”H (SEAT DP: 22”, SEAT HT: 18”)Accent Chair: 39 1/2”L X 33”W X 34 1/2”H (SEAT DP: 22”, SEAT HT: 18”)

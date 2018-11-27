@@ -116,6 +116,8 @@ export default class CatalogList extends Component {
             {/* <div onClick={this.toggle}>
               <Button color="primary" className="suite-button" style={closeButtonStyle}>X</Button>
             </div> */}
+            {this.state.categoryList == true?'Categories':''}
+            
             <Button className="suite-button" style={closeButtonStyle} onClick={this.toggle}> <FaClose /></Button>
           </ModalHeader>
 

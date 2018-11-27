@@ -39,8 +39,28 @@
     padding: 5px;
     color: white;
 }
+.category-view .card {
+    margin-bottom: 10px;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
 .category-view .card .card-img-top {
     max-width: 300px;
+    max-height: 300px;   
+    position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.category-view .card .card-img-top:hover {
+    cursor: pointer;
+    opacity: 0.7;
 }
 
 .showcatButton {
@@ -48,10 +68,15 @@
 }
 .pop-layout {
     width: 100%;
-    background: #525252;
+    /* background: #525252; */
 }
 .modal-header {
     border-bottom: 0px !important;
+}
+.modal-header .modal-title {
+    text-align: center !important;
+    width: 100% !important;
+    color: white !important;
 }
 .modal-content {
     background: #525252 !important;
@@ -72,11 +97,9 @@
     border: 0px !important;
 }
 .suite-icon {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
+    width: 28px;
     text-align: center;
-    border-radius: 50%;
+    background: #28292d;
 }
 
 /* Carousel styling */
