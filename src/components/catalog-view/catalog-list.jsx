@@ -47,7 +47,8 @@ export default class CatalogList extends Component {
     this.state = {
       modal: false,
       categoryList: true,
-      catalog: elementsToDisplay
+      catalog: elementsToDisplay,
+      category: null
     };
 
     this.toggle = this.toggle.bind(this);
@@ -62,8 +63,9 @@ export default class CatalogList extends Component {
 
 
   choseCategory(newPage) {
-
+    console.log('cat selected',newPage)
     this.setState({
+      category: newPage,
       categoryList: !this.state.categoryList
     });
   }
@@ -126,7 +128,7 @@ export default class CatalogList extends Component {
 
               <div className="category-view">
                 {Object.keys(categoriesToDisplay).map((key, i) => {
-                  return <Card onClick={() => this.choseCategory(categoriesToDisplay[key].name)} key={i}>
+                  return <Card onClick={() => this.choseCategory(categoriesToDisplay[key])} key={i}>
                     <CardTitle className="cat-title">{categoriesToDisplay[key].label}</CardTitle>
                     <CardImg top width="50%" src="https://i.imgur.com/vyx9Vyx.jpg" alt="Card image cap" />
                   </Card>
@@ -134,7 +136,7 @@ export default class CatalogList extends Component {
 
               </div>
               :
-              <Gallery catalog={elementsToDisplay} category={this.state.category} goBack={this.choseCategory} />}
+              <Gallery catalog={this.state.catalog} category={this.state.category} goBack={this.choseCategory} />}
             <br />
           </ModalBody>
         </Modal>

@@ -23,6 +23,7 @@ export default class Gallery extends Component {
     super(props);
 
     let elements = props.catalog;
+    // let elements = props.category.elements;
 
     this.state = {
       isGallery: false,
@@ -56,6 +57,7 @@ export default class Gallery extends Component {
         :
         <div>
           <Button color="primary" style={backButtonStyle} className="suite-button" onClick={() => this.props.goBack('root')}><FaArrowLeft /></Button>
+          <h5 className="cat-modal-title">{this.props.category.label}</h5>
           <div className="category-view">
             {Object.keys(items).map((key, i) => {
               return <Card onClick={() => this.toggle(items[i])} key={i}>

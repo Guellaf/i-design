@@ -82,6 +82,10 @@
     background: #525252 !important;
     height: 100%;
 }
+.cat-modal-title {
+    text-align: center;
+    color: white;
+}
 .suite-button {
     border-radius: 50%;
     height: 50px;

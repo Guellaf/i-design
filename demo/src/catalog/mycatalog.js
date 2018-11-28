@@ -17,8 +17,8 @@ for( let x in Items ) catalog.registerElement( Items[x] );
 
 //  Demo sample categories
 
-catalog.registerCategory('doors_windows', 'Doors and Windows ', [Holes.window, Holes.sashWindow, Holes.venetianBlindWindow, Holes.windowCurtain] );
-catalog.registerCategory('walls', 'Walls', [Holes.door, Holes.doorDouble, Holes.panicDoor, Holes.panicDoorDouble, Holes.slidingDoor] );
+catalog.registerCategory('doors_windows', 'Doors and Windows ', [Holes.door, Holes.doorDouble, Holes.gate, Holes.panicDoor, Holes.panicDoorDouble, Holes.slidingDoor, Holes.window, Holes.sashWindow, Holes.venetianBlindWindow, Holes.windowCurtain] );
+catalog.registerCategory('walls', 'Walls', [Lines.wall, Areas.area] );
 catalog.registerCategory('living_room', 'Living Room', [Holes.window, Holes.sashWindow, Holes.venetianBlindWindow, Holes.windowCurtain] );
 catalog.registerCategory('office_room', 'Office Room', [Holes.door, Holes.doorDouble, Holes.panicDoor, Holes.panicDoorDouble, Holes.slidingDoor] );
 catalog.registerCategory('bedroom', 'Bedroom', [Holes.window, Holes.sashWindow, Holes.venetianBlindWindow, Holes.windowCurtain] );
