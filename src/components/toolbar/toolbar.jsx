@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import fire from '../../config/fire';
 import { MdSettings, MdUndo, MdDirectionsRun } from 'react-icons/lib/md';
-import { FaFileO, FaMousePointer, FaPlus, FaBuilding } from 'react-icons/lib/fa';
+import { FaFileO, FaMousePointer } from 'react-icons/lib/fa';
 import ToolbarButton from './toolbar-button';
 import ToolbarSaveButton from './toolbar-save-button';
 import ToolbarLoadButton from './toolbar-load-button';
@@ -16,6 +16,7 @@ import {
   MODE_CONFIGURING_PROJECT
 } from '../../constants';
 import * as SharedStyle from '../../shared-style';
+import CatalogList from '../catalog-view/catalog-list';
 
 const iconTextStyle = {
   fontSize: '19px',
@@ -25,8 +26,8 @@ const iconTextStyle = {
   userSelect: 'none'
 };
 
-const Icon2D = ( {style} ) => <p style={{...iconTextStyle, ...style, paddingTop: '5px'}}>2D</p>;
-const Icon3D = ( {style} ) => <p style={{...iconTextStyle, ...style, paddingTop: '10px'}}>3D</p>;
+const Icon2D = ({ style }) => <p style={{ ...iconTextStyle, ...style, paddingTop: '5px' }}>2D</p>;
+const Icon3D = ({ style }) => <p style={{ ...iconTextStyle, ...style, paddingTop: '10px' }}>3D</p>;
 
 const ASIDE_STYLE = {
   backgroundColor: SharedStyle.PRIMARY_COLOR.main,
@@ -61,7 +62,7 @@ export default class Toolbar extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.state = { modal: false, modalLogin: false, modalSignup: false,}
+    this.state = { modal: false, modalLogin: false, modalSignup: false, }
 
     this.save = this.save.bind(this)
     // this.writeUserData = this.writeUserData.bind(this)
@@ -70,14 +71,14 @@ export default class Toolbar extends Component {
     this.toggleModalSignup = this.toggleModalSignup.bind(this)
   }
 
-  save (a) {
-    if(fire.auth().currentUser) {
+  save(a) {
+    if (fire.auth().currentUser) {
       let uid = fire.auth().currentUser.uid;
       this.writeUserData(uid, "project13456", a)
-    }else {
+    } else {
       this.toggleModal()
     }
-    console.log('will be save')
+
     // fire.database().ref("project").once("value", function(snap) {
     //   console.log("snap",snap.val())
     // }, function(err) {
@@ -85,16 +86,16 @@ export default class Toolbar extends Component {
     // });
   }
 
-  toggleModal () {
-    this.setState({modal: !this.state.modal, modalLogin: false, modalSignup: false})
+  toggleModal() {
+    this.setState({ modal: !this.state.modal, modalLogin: false, modalSignup: false })
   }
 
-  toggleModalLogin () {
-    this.setState({modalLogin: !this.state.modalLogin})
+  toggleModalLogin() {
+    this.setState({ modalLogin: !this.state.modalLogin })
   }
 
-  toggleModalSignup () {
-    this.setState({modalSignup: !this.state.modalSignup})
+  toggleModalSignup() {
+    this.setState({ modalSignup: !this.state.modalSignup })
   }
 
 
@@ -151,10 +152,16 @@ export default class Toolbar extends Component {
       {
         index: 4, condition: true,
         dom: <ToolbarButton
-          active={[MODE_VIEWING_CATALOG].includes(mode)}
           tooltip={translator.t('Open catalog')}
-          onClick={event => projectActions.openCatalog()}>
-          <FaBuilding />
+          active={true}
+          onClick={() => null}
+        >
+          <CatalogList
+            state={state}
+            width={width}
+            height={height}
+            label={<img src="https://i.imgur.com/Zsn3uYh.png" className="suite-icon" />}
+          />
         </ToolbarButton>
       },
       {
@@ -169,7 +176,7 @@ export default class Toolbar extends Component {
         index: 6, condition: true, dom: <ToolbarButton
           active={[MODE_IDLE].includes(mode)}
           tooltip={translator.t('2D View')}
-          onClick={event => projectActions.setMode( MODE_IDLE )}>
+          onClick={event => projectActions.setMode(MODE_IDLE)}>
           <Icon2D />
         </ToolbarButton>
       },
@@ -216,12 +223,12 @@ export default class Toolbar extends Component {
     return (
       <aside style={{ ...ASIDE_STYLE, maxWidth: width, maxHeight: height }} className='toolbar'>
         {this.state.modal && <ModalDontLogged
-        toggleModal={this.toggleModal}
-        modalLogin={this.state.modalLogin}
-        modalSignup={this.state.modalSignup}
-        modal={this.state.modal}
-        toggleModalLogin={this.toggleModalLogin}
-        toggleModalSignup={this.toggleModalSignup}/>}
+          toggleModal={this.toggleModal}
+          modalLogin={this.state.modalLogin}
+          modalSignup={this.state.modalSignup}
+          modal={this.state.modal}
+          toggleModalLogin={this.toggleModalLogin}
+          toggleModalSignup={this.toggleModalSignup} />}
 
         {sorter.sort(sortButtonsCb).map(mapButtonsCb)}
       </aside>

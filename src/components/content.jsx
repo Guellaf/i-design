@@ -4,6 +4,7 @@ import Viewer2D from './viewer2d/viewer2d';
 import Viewer3D from './viewer3d/viewer3d';
 import Viewer3DFirstPerson from './viewer3d/viewer3d-first-person';
 import CatalogList from './catalog-view/catalog-list';
+
 import ProjectConfigurator from './configurator/project-configurator';
 
 import * as constants from '../constants';
@@ -20,6 +21,7 @@ export default function Content({width, height, state, customContents}) {
 
     case constants.MODE_VIEWING_CATALOG:
       return <CatalogList state={state} width={width} height={height}/>;
+
 
     case constants.MODE_IDLE:
     case constants.MODE_2D_ZOOM_IN:

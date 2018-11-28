@@ -23,3 +23,103 @@
 .top-nav div {
     margin: 5px;
 }
+.category-view {
+    display: block;
+    column-count: 2;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    width: 50%;
+    margin: 0 auto;
+}
+.cat-title {
+    margin-bottom: -20px !important;
+    z-index: 999;
+    background: #212529a6;
+    text-align: center;
+    padding: 5px;
+    color: white;
+}
+.category-view .card {
+    margin-bottom: 10px;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+.category-view .card .card-img-top {
+    max-width: 300px;
+    max-height: 300px;   
+    position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.category-view .card .card-img-top:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.showcatButton {
+    width: 100%;
+}
+.pop-layout {
+    width: 100%;
+    /* background: #525252; */
+}
+.modal-header {
+    border-bottom: 0px !important;
+}
+.modal-header .modal-title {
+    text-align: center !important;
+    width: 100% !important;
+    color: white !important;
+}
+.modal-content {
+    background: #525252 !important;
+    height: 100%;
+}
+.cat-modal-title {
+    text-align: center;
+    color: white;
+}
+.suite-button {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    /* position: fixed; */
+   
+    border-radius: 2.25rem !important;
+    background: #e0e0e0 !important;
+    color: black !important;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 
+                0px 6px 10px 0px rgba(0, 0, 0, 0.14), 
+                0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+    border: 0px !important;
+}
+.suite-icon {
+    width: 28px;
+    text-align: center;
+    background: #28292d;
+}
+
+/* Carousel styling */
+.carousel-thumb {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-thumb .image-box {
+    margin: 2px;
+    border: 3px solid #ffff;
+    padding: 2px;
+}
+.carousel-thumb .image-box-active, .carousel-thumb .image-box:hover {
+    margin: 2px;
+    border: 3px solid #00e5ff;
+    padding: 2px;
+}
