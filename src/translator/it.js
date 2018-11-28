@@ -57,6 +57,7 @@ export default {
   "Reset": "Annulla",
   "Rotation" : "Rotazione",
   "Save project": "Salva progetto",
+  "Download scene": "Scarica la scena",
   "Save" : "Salva",
   "Scene Zoom Level":"Livello di Zoom della Scena",
   "Search Element":"Cerca Elemento",

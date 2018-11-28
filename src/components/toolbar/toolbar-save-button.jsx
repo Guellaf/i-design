@@ -18,9 +18,9 @@ export default function ToolbarSaveButton({state, props, save, type}, {translato
       save(state.get('scene').toJS())
     }
   };
-
+  var tooltip = (type == 'download') ? 'Download scene' : 'Save project';
   return (
-    <ToolbarButton active={false} tooltip={translator.t('Save project')} onClick={saveProjectToFile}>
+    <ToolbarButton active={false} tooltip={translator.t(tooltip)} onClick={saveProjectToFile}>
       {type == 'download' ? <FaDownload /> : <IconSave /> }
     </ToolbarButton>
   );
