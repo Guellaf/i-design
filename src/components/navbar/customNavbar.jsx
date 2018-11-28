@@ -129,7 +129,7 @@ class CustomNavbar extends React.Component {
     return (
       <div>
         <Navbar style={navStyle} color="dark" dark expand="md">
-          <NavbarBrand href="/">
+          <NavbarBrand tag={Link} to={'/'}>
             <img src="https://i.imgur.com/iwyixsm.png" style={{width: '2em', marginRight: '0.5em', display: 'inline'}}
                  alt=""/>
             <span>EXKUISITE</span>

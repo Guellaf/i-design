@@ -57,6 +57,7 @@ export default {
   "Reset": "Reset",
   "Rotation" : "Rotation",
   "Save project": "Save project",
+  "Download scene": "Download scene",
   "Save": "Save",
   "Scene Zoom Level":"Scene Zoom Level",
   "Search Element":"Search Element",

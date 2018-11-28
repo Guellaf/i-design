@@ -57,6 +57,7 @@ export default {
   "Reset": "Сброс",
   "Rotation": "Вращение",
   "Save project": "Сохранить проект",
+  "Download scene": "скачать сцену",
   "Save": "Сохранить",
   "Scene Zoom Level": "Уровень приближениия сцены",
   "Search Element": "Поиск",

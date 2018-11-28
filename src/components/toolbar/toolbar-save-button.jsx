@@ -1,23 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconSave from 'react-icons/lib/fa/floppy-o';
+import { FaDownload } from 'react-icons/lib/fa';
 import ToolbarButton from './toolbar-button';
 import {browserDownload}  from '../../utils/browser';
 import { Project } from '../../class/export';
 
-export default function ToolbarSaveButton({state, props, save}, {translator}) {
+export default function ToolbarSaveButton({state, props, save, type}, {translator}) {
 
 
   let saveProjectToFile = e => {
     e.preventDefault();
     state = Project.unselectAll( state ).updatedState;
-    save(state.get('scene').toJS())
-    // browserDownload(state.get('scene').toJS());
+    if(type == 'download') {
+      browserDownload(state.get('scene').toJS());
+    } else {
+      save(state.get('scene').toJS())
+    }
   };
-
+  var tooltip = (type == 'download') ? 'Download scene' : 'Save project';
   return (
-    <ToolbarButton active={false} tooltip={translator.t('Save project')} onClick={saveProjectToFile}>
-      <IconSave />
+    <ToolbarButton active={false} tooltip={translator.t(tooltip)} onClick={saveProjectToFile}>
+      {type == 'download' ? <FaDownload /> : <IconSave /> }
     </ToolbarButton>
   );
 }
