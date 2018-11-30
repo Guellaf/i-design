@@ -18,7 +18,6 @@ export default class SamplesPage extends React.Component {
 								<CardBody>
 									<Link to="/editor">
 										<CardTitle>Sample 1</CardTitle>
-										<Button>Button</Button>
 									</Link>
 								</CardBody>
 							</Card>
@@ -29,7 +28,6 @@ export default class SamplesPage extends React.Component {
 								<CardBody>
 									<Link to="/editor">
 										<CardTitle>Sample 2</CardTitle>
-										<Button>Button</Button>
 									</Link>
 								</CardBody>
 							</Card>
@@ -40,7 +38,6 @@ export default class SamplesPage extends React.Component {
 								<CardBody>
 									<Link to="/editor">
 										<CardTitle>Sample 3</CardTitle>
-										<Button>Button</Button>
 									</Link>
 								</CardBody>
 							</Card>

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import ModalLogin from "./modalLogin";
-import fire from '../../config/fire';
+import fire from '../../config/fire';;
 
 const style = {
     justifyContent: 'center'
@@ -34,7 +34,7 @@ class ModalDontLogged extends React.Component {
         fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
         .then((user)=>{
           this.setState({password: "", email: "", errors: ""})
-          this.props.onAdd({email: user.user.email, uid: user.user.uid});
+          this.props.addUser({email: user.user.email, uid: user.user.uid});
         }).then(()=>{
             this.props.toggleModalLogin();
         this.props.toggleModal();
@@ -51,7 +51,7 @@ class ModalDontLogged extends React.Component {
         fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then((user)=>{
           this.setState({password: "", email: "", errors: ""});
-          this.props.onAdd({email: user.user.email, uid: user.user.uid});
+          this.props.addUser({email: user.user.email, uid: user.user.uid});
 
         }).then(()=>{
             this.props.toggleModalSignup();
@@ -112,7 +112,7 @@ function mapStateToProps(reduxState) {
 
   function mapDispatchToProps(dispatch) {
     return {
-      onAdd: (data) => {
+      addUser: (data) => {
         return dispatch({type: "ADD_USER", payload: data})
       }
     };

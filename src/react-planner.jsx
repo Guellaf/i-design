@@ -11,8 +11,7 @@ import {
   ToolbarComponents,
   Content,
   SidebarComponents,
-  FooterBarComponents,
-  NavbarComponents
+  FooterBarComponents
 } from './components/export';
 import {VERSION} from './version';
 import './styles/export';
@@ -20,7 +19,6 @@ import './styles/export';
 const {Toolbar} = ToolbarComponents;
 const {Sidebar} = SidebarComponents;
 const {FooterBar} = FooterBarComponents;
-const {CustomNavbar} = NavbarComponents;
 
 const toolbarW = 50;
 const sidebarW = 300;

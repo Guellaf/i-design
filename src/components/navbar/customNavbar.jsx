@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import fire from '../../config/fire';
-import {Navbar, NavItem, NavbarBrand, NavbarToggler, Collapse, Nav, NavLink} from 'reactstrap';
-import {Link} from 'react-router-dom'
+import {Navbar, NavItem, NavbarBrand, NavbarToggler, Collapse, Nav} from 'reactstrap';
+import {Link, NavLink} from 'react-router-dom';
 
 import ModalLogin from "./modalLogin";
 
@@ -17,7 +17,9 @@ const navItemStyle = {
   listStyle: 'none',
   padding: '0 10px',
   textTransform: 'uppercase',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  alignItems: 'center',
+    display: 'flex'
 }
 
 const linkItemStyle = {
@@ -32,8 +34,7 @@ class CustomNavbar extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      modalLogin: false, modalSignin: false, email: "", password: "", user: null, errors: "",
-      user: null
+      modalLogin: false, modalSignin: false, email: "", password: "", user: null, errors: "", auth: false
     };
 
     this.toggleLogin = this.toggleLogin.bind(this);
@@ -42,9 +43,28 @@ class CustomNavbar extends React.Component {
     this.signup = this.signup.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.logout = this.logout.bind(this);
-    this.logged = this.logged.bind(this);
+    this.isAuth = this.isAuth.bind(this);
   }
 
+  isAuth() {
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.props.addUser({email: user.email, uid: user.uid});
+        this.setState({auth: user.email})
+      } else {
+        this.props.deleteUser();
+        this.setState({auth: null})
+      }
+    });
+  }
+
+  componentDidMount() {
+    this.isAuth()
+  }
+
+  componentWillUnmount () {
+    this.isAuth()
+  }
 
   toggleLogin() {
     this.setState({
@@ -67,25 +87,13 @@ class CustomNavbar extends React.Component {
     });
   }
 
-  componentDidMount() {
-    console.log('navbar', fire.auth().currentUser)
-    fire.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log("navbar", user)
-        this.props.onAdd({email: user.email, uid: user.uid});
-      } else {
-        this.props.onDelete();
-      }
-    });
-  }
-
   login(e) {
     e.preventDefault();
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then((user) => {
         this.toggleLogin()
         this.setState({password: "", email: "", errors: ""})
-        this.props.onAdd({email: user.user.email, uid: user.user.uid});
+        this.props.addUser({email: user.user.email, uid: user.user.uid});
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -94,17 +102,13 @@ class CustomNavbar extends React.Component {
       });
   }
 
-  logged(email, uid) {
-    // this.props.userActions.addUser({email: email, uid: uid});
-  }
-
   signup(e) {
     e.preventDefault();
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then((user) => {
         this.toggleSignup()
         this.setState({password: "", email: "", errors: ""});
-        this.props.onAdd({email: user.user.email, uid: user.user.uid});
+        this.props.addUser({email: user.user.email, uid: user.user.uid});
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -116,7 +120,7 @@ class CustomNavbar extends React.Component {
   logout() {
     fire.auth().signOut()
       .then(() => {
-        this.props.onDelete();
+        this.props.deleteUser();
       })
       .catch((error) => {
         console.log(error)
@@ -124,7 +128,7 @@ class CustomNavbar extends React.Component {
   }
 
   render() {
-    let userEmail = this.props.state._root.entries[0][1].user.user.email
+    let userEmail = this.state.auth
 
     return (
       <div>
@@ -139,15 +143,11 @@ class CustomNavbar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             {userEmail ?
               <Nav className="ml-auto" navbar>
-                <NavItem style={linkItemStyle}><Link to="/samples"> Samples </Link></NavItem>
-                <NavItem style={linkItemStyle}><Link to="/editor"> Add New </Link></NavItem>
-                <NavItem style={navItemStyle}>{userEmail}</NavItem>
+                <NavItem style={navItemStyle}><i>{userEmail}</i></NavItem>
                 <NavItem style={navItemStyle} onClick={this.logout} href="/">logout</NavItem>
               </Nav>
               :
               <Nav className="ml-auto" navbar>
-                <NavItem style={linkItemStyle}><Link to="/samples"> Samples </Link></NavItem>
-                <NavItem style={linkItemStyle}><Link to="/editor"> Add New </Link></NavItem>
                 <NavItem style={navItemStyle} onClick={this.toggleLogin} href="/">SIGN IN</NavItem>
                 <NavItem style={navItemStyle} onClick={this.toggleSignup} href="/">SIGN UP</NavItem>
               </Nav>
@@ -191,10 +191,10 @@ function mapStateToProps(reduxState) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onAdd: (data) => {
+    addUser: (data) => {
       return dispatch({type: "ADD_USER", payload: data})
     },
-    onDelete: (data) => {
+    deleteUser: (data) => {
       return dispatch({type: "DELETE_USER"})
     }
   };

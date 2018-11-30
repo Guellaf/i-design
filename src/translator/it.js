@@ -20,7 +20,7 @@ export default {
   "Delete layer": "Elimina livello",
   "Delete": "Elimina",
   "Elements on layer {0}": "Elementi nel livello {0}",
-  "Elements in the design": "Elementi nel design", 
+  "Elements in the design": "Elementi nel design",
   "Elements":"Elementi",
   "Get Screenshot" : "Cattura uno screenshot",
   "Group [{0}]":"Gruppo [{0}]",

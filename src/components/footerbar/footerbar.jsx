@@ -106,7 +106,6 @@ export default class FooterBar extends Component {
     );
   }
 }
-
 FooterBar.propTypes = {
   state: PropTypes.object.isRequired,
   footerbarComponents: PropTypes.array.isRequired,
@@ -114,7 +113,6 @@ FooterBar.propTypes = {
   height: PropTypes.number.isRequired,
   softwareSignature: PropTypes.string
 };
-
 FooterBar.contextTypes = {
   projectActions: PropTypes.object.isRequired,
   viewer2DActions: PropTypes.object.isRequired,

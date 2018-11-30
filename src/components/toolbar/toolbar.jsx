@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import fire from '../../config/fire';
+import Notifications, {notify} from 'react-notify-toast';
 import { MdSettings, MdUndo, MdDirectionsRun } from 'react-icons/lib/md';
 import { FaFileO, FaMousePointer } from 'react-icons/lib/fa';
 import ToolbarButton from './toolbar-button';
 import ToolbarSaveButton from './toolbar-save-button';
 import ToolbarLoadButton from './toolbar-load-button';
-import ModalDontLogged from '../navbar/modalDontLogged';
+import ModalDontLogged from '../navbar/modalNotLoggedIn';
 import If from '../../utils/react-if';
 import {
   MODE_IDLE,
@@ -62,28 +63,52 @@ export default class Toolbar extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.state = { modal: false, modalLogin: false, modalSignup: false, }
+    this.show = notify.createShowQueue();
+    this.state = { modal: false, modalLogin: false, modalSignup: false,}
+
 
     this.save = this.save.bind(this)
-    // this.writeUserData = this.writeUserData.bind(this)
     this.toggleModal = this.toggleModal.bind(this)
+    this.promptName = this.promptName.bind(this)
     this.toggleModalLogin = this.toggleModalLogin.bind(this)
     this.toggleModalSignup = this.toggleModalSignup.bind(this)
   }
 
-  save(a) {
-    if (fire.auth().currentUser) {
-      let uid = fire.auth().currentUser.uid;
-      this.writeUserData(uid, "project13456", a)
-    } else {
+  promptName() {
+    let name = prompt("Please enter your desgin name", "");
+      if(name.length > 2) {
+        return name;
+      }else {
+        this.promptName();
+      }
+  }
+
+  save (data) {
+    if(fire.auth().currentUser) {
+      let name = this.promptName();
+      if(name != null) {
+        let uid = fire.auth().currentUser.uid;
+        let project = {design: data, name: name, userId: uid}
+        const firestore = fire.firestore();
+        const settings = {timestampsInSnapshots: true};
+        firestore.settings(settings);
+        let date = new Date().getTime();
+        firestore.collection('designs').doc(uid).set(
+          {['project'+date]: {design: data, name: name, userId: uid}}, {merge: true}
+        )
+        .then(function(docRef) {
+          let myColor = { background: 'green', text: "#FFFFFF"};
+          notify.show('project data success saved!', "custom", 3000, myColor);
+        })
+        .catch(function(error) {
+          let myColor = { background: 'red', text: "#FFFFFF"};
+          notify.show(error, "custom", 3000, myColor);
+        });
+      }
+    }else {
       this.toggleModal()
     }
 
-    // fire.database().ref("project").once("value", function(snap) {
-    //   console.log("snap",snap.val())
-    // }, function(err) {
-    //   // error callback triggered with PERMISSION_DENIED
-    // });
   }
 
   toggleModal() {
@@ -98,15 +123,6 @@ export default class Toolbar extends Component {
     this.setState({ modalSignup: !this.state.modalSignup })
   }
 
-
-
-  // writeUserData (uid, name, file) {
-  //   console.log('user save');
-  //   name = {name: name, file: file};
-  //   fire.database().ref('/project/'+uid).set({
-  //     name
-  //   });
-  // }
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.props.state.mode !== nextProps.state.mode ||
@@ -176,7 +192,7 @@ export default class Toolbar extends Component {
         index: 6, condition: true, dom: <ToolbarButton
           active={[MODE_IDLE].includes(mode)}
           tooltip={translator.t('2D View')}
-          onClick={event => projectActions.setMode(MODE_IDLE)}>
+          onClick={event => projectActions.setMode( MODE_IDLE )}>
           <Icon2D />
         </ToolbarButton>
       },
@@ -231,6 +247,7 @@ export default class Toolbar extends Component {
           toggleModalSignup={this.toggleModalSignup} />}
 
         {sorter.sort(sortButtonsCb).map(mapButtonsCb)}
+        <Notifications  options={{zIndex: 200, top: '70px'}}/>
       </aside>
     )
   }

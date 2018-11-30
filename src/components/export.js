@@ -4,7 +4,6 @@ import SidebarComponents from './sidebar/export';
 import FooterBarComponents from './footerbar/export';
 import Viewer2DComponents from './viewer2d/export';
 import StyleComponents from './style/export';
-import NavbarComponents from './navbar/export';
 
 export {
   ToolbarComponents,
@@ -12,8 +11,7 @@ export {
   SidebarComponents,
   FooterBarComponents,
   Viewer2DComponents,
-  StyleComponents,
-  NavbarComponents
+  StyleComponents
 };
 
 export default {
@@ -22,6 +20,5 @@ export default {
   SidebarComponents,
   FooterBarComponents,
   Viewer2DComponents,
-  StyleComponents,
-  NavbarComponents
+  StyleComponents
 };
